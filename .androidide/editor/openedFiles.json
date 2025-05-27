@@ -4,17 +4,32 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/build.gradle",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 2525,
-          "line": 78
+          "column": 1,
+          "index": 3489,
+          "line": 104
         },
         "start": {
-          "column": 0,
-          "index": 2525,
-          "line": 78
+          "column": 1,
+          "index": 3489,
+          "line": 104
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/AdministrationLogger.java",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 15985,
+          "line": 403
+        },
+        "start": {
+          "column": 1,
+          "index": 15985,
+          "line": 403
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/build.gradle"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/AdministrationLogger.java"
 }

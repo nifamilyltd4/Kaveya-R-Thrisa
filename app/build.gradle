@@ -7,39 +7,50 @@ plugins {
 android {
     namespace 'com.nidoham.kaveya'
     compileSdk 34
-
+    
     defaultConfig {
         applicationId "com.nidoham.kaveya"
         minSdk 26
         targetSdk 33
         versionCode 2
         versionName "0.1-alpha"
-
+        
         vectorDrawables {
             useSupportLibrary true
         }
-
-        def properties = new Properties()
-        properties.load(project.rootProject.file("local.properties").newDataInputStream())
-        buildConfigField "String", "GEMINI_API_KEY", "\"${properties.getProperty('GEMINI_API_KEY')}\""
+        
+        // Safe loading of properties with fallback
+        def geminiKey = ""
+        def githubToken = ""
+        
+        def localPropsFile = project.rootProject.file("local.properties")
+        if (localPropsFile.exists()) {
+            def properties = new Properties()
+            properties.load(localPropsFile.newDataInputStream())
+            geminiKey = properties.getProperty('GEMINI_API_KEY', '')
+            githubToken = properties.getProperty('github.token', '')
+        }
+        
+        buildConfigField "String", "GEMINI_API_KEY", "\"${geminiKey}\""
+        buildConfigField "String", "GITHUB_TOKEN", "\"${githubToken}\""
     }
-
+    
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
+    
     kotlinOptions {
         jvmTarget = '17'
     }
-
+    
     buildFeatures {
         viewBinding true
         buildConfig true
@@ -58,36 +69,36 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.core:core:1.13.1'
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
-    implementation 'androidx.viewpager2:viewpager2:1.0.0' 
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
     
     // ML Kit Language Identification
     implementation 'com.google.mlkit:language-id:17.0.0'
     implementation 'com.google.mlkit:translate:16.1.1'
-
+    
     // JSON handling
     implementation 'com.google.code.gson:gson:2.11.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
-
+    
     // Firebase (older BOM version for Kotlin 1.9 compatibility)
-    implementation platform('com.google.firebase:firebase-bom:32.7.3') // keeping this version for compatibility
+    implementation platform('com.google.firebase:firebase-bom:32.7.3')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-analytics'
-
+    
     // Google Sign-In
     implementation 'com.google.android.gms:play-services-auth:21.0.0'
-
+    
     // ImageView and image loading
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
-
+    
     // Network
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-
+    
     // Google Generative AI
     implementation 'com.google.ai.client.generativeai:generativeai:0.9.0'
-
+    
     // Utilities
     implementation 'com.google.guava:guava:33.0.0-android'
     implementation 'org.reactivestreams:reactive-streams:1.0.4'
