@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ================ App Information ================ -->
+    <string name="app_name">Kaveya R Trisha</string>
+    
+    <!-- ================ API Configuration ================ -->
+    <string name="MODEL_NAME">google/gemini-2.0-flash-001</string>
+    <string name="API_URL">https://openrouter.ai/api/v1/chat/completions</string>
+    <string name="API_KEY">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</string>
+    
+    <!-- ================ Navigation Drawer ================ -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_drawer_open">Open Navigation Drawer</string>
+    <string name="nav_drawer_close">Close Navigation Drawer</string>
+    
+    <!-- Navigation Categories -->
+    <string name="nav_title_creation">Creation</string>
+    <string name="nav_title_assistant">Assistant</string>
+    <string name="nav_title_games">Games Zone</string>
+    
+    <!-- Navigation Items -->
+    <string name="nav_puzzle">পাজল গেম</string>
+    <string name="nav_assistant">AI Assistant</string>
+    <string name="nav_creation">Creative Tools</string>
+    <string name="nav_quiz">Knowledge Quiz</string>
+    
+    <!-- Menu Items -->
+    <string name="menu_creation">My Creations</string>
+    <string name="menu_chats">Conversations</string>
+    <string name="menu_profile">My Profile</string>
+    <string name="menu_settings">App Settings</string>
+    <string name="menu_help">Help Center</string>
+    <string name="menu_share">Share App</string>
+    <string name="menu_about">About Us</string>
+    <string name="menu_logout">Sign Out</string>
+    <string name="menu_google">AI Assistant</string>
+    <string name="menu_add_character">Create New Character</string>
+    
+    <!-- Navigation Header -->
+    <string name="nav_header_title">Ruposhi User</string>
+    <string name="nav_header_subtitle">user@ruposhi.com</string>
+    <string name="nav_header_desc">Navigation Header</string>
+    
+    <!-- Navigation Controls -->
+    <string name="nav_back">Back</string>
+    <string name="nav_back_button">Return</string>
+    
+    <!-- ================ UI Labels ================ -->
+    <string name="ui_features_label">Features</string>
+    <string name="ui_settings_label">Settings</string>
+    <string name="ui_about_label">About</string>
+    <string name="ui_close">Close</string>
+    <string name="ui_welcome_message">Welcome to Ruposhi AI Assistant</string>
+    <string name="ui_more_tokens">Get More Tokens</string>
+    <string name="ui_loading">Loading content...</string>
+    <string name="ui_no_data">No content available</string>
+    <string name="ui_confirm_logout">Are you sure you want to sign out?</string>
+    <string name="ui_yes">Yes</string>
+    <string name="ui_no">No</string>
+    
+    <!-- ================ Token System ================ -->
+    <string name="current_tokens">বর্তমান টোকেন: %d</string>
+    <string name="tokens_added_message">%d টোকেন যোগ হয়েছে!</string>
+    <string name="daily_rewards">দৈনিক রিওয়ার্ড</string>
+    <string name="claim_daily_reward">দৈনিক রিওয়ার্ড নিন</string>
+    <string name="claim_weekly_bonus">সাপ্তাহিক বোনাস নিন</string>
+    
+    <!-- ================ Error Handling ================ -->
+    <string name="firebase_not_initialized">Firebase is not initialized</string>
+    
+    <string name="error_title">Application Error</string>
+    <string name="error_subtitle">An unexpected error has occurred. Please help us improve by reporting this issue.</string>
+    <string name="error_report_button">Report Issue</string>
+    <string name="error_unknown">An unexpected error occurred. Please try again.</string>
+    <string name="error_no_report">No error information available to report.</string>
+    <string name="unknown_error">An unexpected error occurred. Please restart the app.</string>
+    <string name="no_error_to_report">No error information available to report.</string>
+    
+    <!-- ================ Debug Activity ================ -->
+    <string name="debug_title">Application Error</string>
+    <string name="debug_subtitle">Sorry, the application encountered an unexpected error.</string>
+    <string name="debug_error_details_label">Error Details:</string>
+    <string name="debug_submit_report">Submit Report</string>
+    <string name="debug_close_app">Close App</string>
+    <string name="debug_thank_you">Thank you for helping us improve the app.</string>
+    <string name="debug_report_submitted">Report submitted successfully</string>
+    <string name="debug_report_failed">Failed to submit report</string>
+    <string name="debug_report_creation_failed">Could not create crash report</string>
+    
+    <!-- Debug UI Elements -->
+    <string name="error_details_label">Error details:</string>
+    <string name="submit_report">Submit Feedback</string>
+    <string name="close_app">Exit Application</string>
+    <string name="thank_you_message">Thank you for helping us improve the app.</string>
+    <string name="report">Report Issue</string>
+    <string name="error_copied">Error Copied</string>
+    <string name="close">Close</string>
+    <string name="report_submitted">Report submitted successfully</string>
+    <string name="report_submission_failed">Failed to submit report</string>
+    <string name="report_creation_failed">Could not create crash report</string>
+    
+    <!-- ================ Chat Interface ================ -->
+    <!-- Chat UI Elements -->
+    <string name="chat_background_description">Chat background</string>
+    <string name="back_button_description">Return to previous screen</string>
+    <string name="profile_avatar_description">User profile picture</string>
+    <string name="call_button_description">Initiate voice call</string>
+    <string name="typing_indicator_text">Typing…</string>
+    <string name="new_messages_description">New unread messages</string>
+    <string name="typing">Assistant is thinking…</string>
+    <string name="message_hint">Ask me anything...</string>
+    
+    <!-- Message Layout -->
+    <string name="received_message">Message from assistant</string>
+    <string name="sent_message">Your message</string>
+    <string name="message_status">Delivery status</string>
+    <string name="sender_avatar_description">Profile picture</string>
+    
+    <!-- Message Actions -->
+    <string name="message_options">Message options</string>
+    <string name="copy_message_description">Copy this message</string>
+    <string name="speak_message_description">Listen to this message</string>
+    <string name="share_message_description">Share this message</string>
+    <string name="delete_message_description">Delete this message</string>
+    
+    <!-- Chat Controls -->
+    <string name="menu_button_description">Open menu options</string>
+    <string name="video_call_button_description">Start video conversation</string>
+    <string name="emoji_button_description">Add emoji expression</string>
+    <string name="attachment_button_description">Attach files or media</string>
+    <string name="send_button_description">Send your message</string>
+    <string name="more_options_description">Additional options</string>
+    
+    <!-- Media Elements -->
+    <string name="message_image_description">Image attachment</string>
+    <string name="media_content">Media content</string>
+    <string name="play_media">Play media content</string>
+    <string name="message_media_description">Attached media</string>
+    <string name="message_status_description">Message status indicator</string>
+    <string name="media_image_description">Attached image</string>
+    
+    <!-- ================ Message options ================ -->
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="refresh">Refresh</string>
+    <string name="speak">Listen</string>
+    <string name="translate">Translate</string>
+    <string name="stop">Stop</string>
+    <string name="pause">Pause</string>
+    <string name="react">React</string>
+    <string name="add_reaction">Add Reaction</string>
+    
+    
+    <!-- Strings for improved sign-in layout -->
+    <string name="app_tagline">Your AI Influencer</string>
+    <string name="background_image_description">Background image</string>
+    <string name="app_logo_description">App logo</string>
+    
+    <string name="welcome_text">Welcome to KR Thrisal</string>
+    <string name="signin_subtitle">Sign in to continue to your AI experience</string>
+    
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="email">Email</string>
+    <string name="mobile">Mobile</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter_x">X</string>
+    <string name="continue_as_guest">Continue as Guest</string>
+    
+    <string name="terms_and_privacy">By continuing, you agree to our Terms of Service and Privacy Policy</string>
+    
+    <!-- Chat message related strings -->
+    <string name="image_content_description">Image message content</string>
+    <string name="avatar_description">User avatar</string>
+    <string name="play_voice_message">Play voice message</string>
+    <string name="pause_voice_message">Pause voice message</string>
+    
+    <!-- Status messages -->
+    <string name="uploading">Uploading…</string>
+    <string name="downloading">Downloading…</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="translation_in_progress">Translation in progress…</string>
+</resources>

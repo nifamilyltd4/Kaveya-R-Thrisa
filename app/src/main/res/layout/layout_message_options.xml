@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     app:cardElevation="4dp"
+     app:strokeWidth="0dp"
+     app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+     app:cardCornerRadius="16dp">
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:padding="4dp"
+         android:orientation="vertical">
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+             android:paddingBottom="4dp"
+             android:textColor="?attr/colorOnSurfaceVariant"
+             android:paddingHorizontal="16dp"
+             android:paddingTop="8dp"
+             android:text="@string/message_options" />
+
+        <com.google.android.material.divider.MaterialDivider
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:layout_marginVertical="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:iconSize="20dp"
+             app:iconTint="?attr/colorPrimary"
+             android:textColor="?attr/colorOnSurface"
+             app:iconPadding="12dp"
+             app:icon="@drawable/ic_copy"
+             android:contentDescription="@string/copy_message_description"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:paddingVertical="8dp"
+             style="@style/Widget.Material3.Button.TextButton.Icon"
+             android:paddingHorizontal="12dp"
+             android:id="@+id/btnCopy"
+             android:text="@string/copy"
+             app:iconGravity="start" />
+
+        <com.google.android.material.button.MaterialButton
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:iconSize="20dp"
+             app:iconTint="?attr/colorPrimary"
+             android:textColor="?attr/colorOnSurface"
+             app:iconPadding="12dp"
+             app:icon="@drawable/ic_speak"
+             android:contentDescription="@string/speak_message_description"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:paddingVertical="8dp"
+             style="@style/Widget.Material3.Button.TextButton.Icon"
+             android:paddingHorizontal="12dp"
+             android:id="@+id/btnSpeak"
+             android:text="@string/speak"
+             app:iconGravity="start" />
+
+        <com.google.android.material.button.MaterialButton
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:iconSize="20dp"
+             app:iconTint="?attr/colorPrimary"
+             android:textColor="?attr/colorOnSurface"
+             app:iconPadding="12dp"
+             app:icon="@drawable/ic_share"
+             android:contentDescription="@string/share_message_description"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:paddingVertical="8dp"
+             style="@style/Widget.Material3.Button.TextButton.Icon"
+             android:paddingHorizontal="12dp"
+             android:id="@+id/btnShare"
+             android:text="@string/share"
+             app:iconGravity="start" />
+
+        <com.google.android.material.button.MaterialButton
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:iconSize="20dp"
+             app:iconTint="?attr/colorPrimary"
+             android:textColor="?attr/colorOnSurface"
+             app:iconPadding="12dp"
+             app:icon="@drawable/ic_translate"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:paddingVertical="8dp"
+             style="@style/Widget.Material3.Button.TextButton.Icon"
+             android:paddingHorizontal="12dp"
+             android:id="@+id/btnTranslate"
+             android:text="@string/translate"
+             app:iconGravity="start" />
+
+        <com.google.android.material.divider.MaterialDivider
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:layout_marginVertical="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:iconSize="20dp"
+             app:iconTint="?attr/colorError"
+             android:textColor="?attr/colorError"
+             app:iconPadding="12dp"
+             app:icon="@drawable/ic_delete"
+             android:contentDescription="@string/delete_message_description"
+             android:gravity="start|center_vertical"
+             android:textAlignment="viewStart"
+             android:paddingVertical="8dp"
+             style="@style/Widget.Material3.Button.TextButton.Icon"
+             android:paddingHorizontal="12dp"
+             android:id="@+id/btnDelete"
+             android:text="@string/delete"
+             app:iconGravity="start" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

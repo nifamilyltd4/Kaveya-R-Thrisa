@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "821224220106",
+    "firebase_url": "https://kaveya-r-thrisa-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "kaveya-r-thrisa",
+    "storage_bucket": "kaveya-r-thrisa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821224220106:android:d28064c59fed79ac631b33",
+        "android_client_info": {
+          "package_name": "com.nidoham.kaveya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821224220106-sim5f0occ7f1gqnpfuchek27j5c3dsrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nidoham.kaveya",
+            "certificate_hash": "3648cc371a1982c4b2d76859da82b984988fb607"
+          }
+        },
+        {
+          "client_id": "821224220106-vjjaafqjp5dk9o8at26kq6sn89iseqr9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9rDHRS7_1DpOzji7EvDHBVuUxIxdnNy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821224220106-vjjaafqjp5dk9o8at26kq6sn89iseqr9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:fitsSystemWindows="true"
+     android:id="@+id/drawer_layout">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+         android:layout_height="match_parent"
+         android:layout_width="match_parent">
+
+        <LinearLayout
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:background="?attr/colorPrimary"
+                 android:id="@+id/appBarLayout">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                     android:layout_height="?attr/actionBarSize"
+                     android:layout_width="match_parent"
+                     app:contentInsetStartWithNavigation="0dp"
+                     android:id="@+id/chat_toolbar">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                         android:layout_height="match_parent"
+                         android:layout_width="match_parent">
+
+                        <com.google.android.material.button.MaterialButton
+                             android:layout_height="48dp"
+                             android:layout_width="48dp"
+                             app:icon="@drawable/ic_menu"
+                             app:iconSize="24dp"
+                             android:contentDescription="@string/menu_button_description"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:layout_constraintStart_toStartOf="parent"
+                             app:iconTint="?attr/colorOnPrimary"
+                             style="@style/Widget.Material3.Button.IconButton"
+                             app:layout_constraintBottom_toBottomOf="parent"
+                             android:id="@+id/drawer_icon" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                             android:layout_height="50dp"
+                             android:layout_width="50dp"
+                             android:contentDescription="@string/profile_avatar_description"
+                             android:scaleType="centerCrop"
+                             app:layout_constraintTop_toTopOf="parent"
+                             app:strokeColor="?attr/colorPrimaryContainer"
+                             app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+                             app:strokeWidth="2dp"
+                             app:layout_constraintStart_toEndOf="@id/drawer_icon"
+                             app:layout_constraintBottom_toBottomOf="parent"
+                             android:layout_marginStart="10dp"
+                             android:id="@+id/avatar_image" />
+
+                        <LinearLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="0dp"
+                             android:background="?attr/selectableItemBackground"
+                             app:layout_constraintTop_toTopOf="parent"
+                             android:layout_marginHorizontal="12dp"
+                             android:orientation="vertical"
+                             app:layout_constraintEnd_toStartOf="@id/chat_actions"
+                             app:layout_constraintStart_toEndOf="@id/avatar_image"
+                             app:layout_constraintBottom_toBottomOf="parent"
+                             android:id="@+id/profile_container">
+
+                            <TextView
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="wrap_content"
+                                 android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                                 android:ellipsize="end"
+                                 android:textColor="?attr/colorOnPrimary"
+                                 android:maxLines="1"
+                                 android:id="@+id/text_username"
+                                 android:text="Keveya R Thrisa" />
+
+                            <TextView
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="wrap_content"
+                                 android:alpha="0.8"
+                                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                 android:textColor="?attr/colorOnPrimary"
+                                 android:layout_marginTop="2dp"
+                                 android:id="@+id/indicator"
+                                 android:text="Online" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                             android:layout_height="match_parent"
+                             android:layout_width="wrap_content"
+                             android:gravity="center_vertical"
+                             android:orientation="horizontal"
+                             app:layout_constraintEnd_toEndOf="parent"
+                             android:id="@+id/chat_actions">
+
+                            <com.google.android.material.button.MaterialButton
+                                 android:layout_height="45dp"
+                                 android:layout_width="45dp"
+                                 app:icon="@drawable/ic_call_answer"
+                                 android:layout_marginEnd="10dp"
+                                 app:iconSize="24dp"
+                                 android:contentDescription="@string/more_options_description"
+                                 app:iconTint="?attr/colorOnPrimary"
+                                 style="@style/Widget.Material3.Button.IconButton"
+                                 android:id="@+id/btn_call_options" />
+
+                            <com.google.android.material.button.MaterialButton
+                                 android:layout_height="45dp"
+                                 android:layout_width="45dp"
+                                 app:icon="@drawable/ic_options"
+                                 android:layout_marginEnd="10dp"
+                                 app:iconSize="24dp"
+                                 android:contentDescription="@string/more_options_description"
+                                 app:iconTint="?attr/colorOnPrimary"
+                                 style="@style/Widget.Material3.Button.IconButton"
+                                 android:id="@+id/btn_more_options" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:background="@drawable/blur_background"
+                 android:layout_weight="1">
+
+                <androidx.recyclerview.widget.RecyclerView
+                     android:layout_height="match_parent"
+                     android:layout_width="match_parent"
+                     android:clipToPadding="false"
+                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                     android:scrollbars="none"
+                    android:background="@null"
+                     app:stackFromEnd="true"
+                     android:paddingBottom="80dp"
+                     android:paddingHorizontal="16dp"
+                     android:id="@+id/messages_recycler_view"
+                     android:paddingTop="8dp" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:background="?attr/colorSurface"
+                 android:elevation="8dp"
+                 android:paddingVertical="8dp"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 android:paddingHorizontal="8dp"
+                 android:layout_gravity="bottom"
+                 android:id="@+id/message_input_container">
+
+                <com.google.android.material.button.MaterialButton
+                     android:layout_height="48dp"
+                     android:layout_width="48dp"
+                     app:icon="@drawable/ic_attachment"
+                     android:contentDescription="@string/attachment_button_description"
+                     app:iconSize="24dp"
+                     app:layout_constraintTop_toTopOf="parent"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:iconTint="?attr/colorOnSurfaceVariant"
+                     style="@style/Widget.Material3.Button.IconButton"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     android:id="@+id/btn_attachment" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                     android:layout_height="wrap_content"
+                     android:layout_width="0dp"
+                     app:hintEnabled="false"
+                     app:boxCornerRadiusBottomEnd="24dp"
+                     app:layout_constraintEnd_toStartOf="@id/btn_send"
+                     app:layout_constraintStart_toEndOf="@id/btn_attachment"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:boxCornerRadiusTopStart="24dp"
+                     app:boxCornerRadiusTopEnd="24dp"
+                     app:endIconMode="custom"
+                     app:endIconContentDescription="@string/emoji_button_description"
+                     android:hint="@string/message_hint"
+                     app:layout_constraintTop_toTopOf="parent"
+                     android:layout_marginHorizontal="8dp"
+                     app:boxCornerRadiusBottomStart="24dp"
+                     app:endIconDrawable="@drawable/ic_emoji"
+                     app:boxBackgroundColor="?attr/colorSurfaceVariant"
+                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+                     android:id="@+id/message_input_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                         android:layout_height="wrap_content"
+                         android:layout_width="match_parent"
+                         android:imeOptions="actionSend"
+                         android:background="@null"
+                         android:minHeight="48dp"
+                         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                         android:paddingVertical="12dp"
+                         android:maxLines="6"
+                         android:inputType="textMultiLine"
+                         android:id="@+id/message_input" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                     android:layout_height="50dp"
+                     android:layout_width="50dp"
+                     app:icon="@drawable/ic_send"
+                     app:iconSize="24dp"
+                     android:contentDescription="@string/send_button_description"
+                     app:layout_constraintTop_toTopOf="parent"
+                     app:iconTint="@color/white"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     style="@style/Widget.Material3.Button.IconButton.Filled"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     android:id="@+id/btn_send" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:visibility="gone"
+             android:textColor="?attr/colorOnSurface"
+             android:layout_marginStart="16dp"
+             android:layout_gravity="bottom|start"
+             android:layout_marginBottom="84dp"
+             android:background="@drawable/bg_typing_indicator"
+             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+             android:paddingVertical="6dp"
+             android:paddingHorizontal="12dp"
+             android:id="@+id/chat_typing_indicator"
+             android:text="@string/typing" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+         android:layout_height="match_parent"
+         android:layout_width="wrap_content"
+         android:background="?attr/colorSurface"
+         app:itemTextColor="@color/nav_item_color_state"
+         app:menu="@menu/drawer_menu"
+         app:itemVerticalPadding="12dp"
+         app:itemIconTint="@color/nav_item_color_state"
+         app:itemIconSize="24dp"
+         app:headerLayout="@layout/nav_header"
+         android:id="@+id/nav_view"
+         android:layout_gravity="start" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
