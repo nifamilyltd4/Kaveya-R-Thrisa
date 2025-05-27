@@ -17,9 +17,9 @@ import com.nidoham.kaveya.firebase.google.analysis.CrashReport;
 
 public class DebugActivity extends AppCompatActivity {
     private static final String TAG = "DebugActivity";
-    private static final String CRASH_REF_PATH = "crashes";
-    private static final String ERROR_EXTRA = "error";
-    private static final String DEVICE_INFO_EXTRA = "deviceInfo";
+    private static final String CRASH_REF_PATH = "CRASH_MESSAGE";
+    private static final String ERROR_EXTRA = "CRASH_ERROR";
+    private static final String DEVICE_INFO_EXTRA = "DEVICE_INFO";
 
     private ActivityDebugBinding binding;
     private DatabaseReference crashReportsRef;

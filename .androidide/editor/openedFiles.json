@@ -1,35 +1,20 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/build.gradle",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/AndroidManifest.xml",
       "selection": {
         "end": {
-          "column": 1,
-          "index": 3489,
-          "line": 104
+          "column": 28,
+          "index": 1157,
+          "line": 34
         },
         "start": {
-          "column": 1,
-          "index": 3489,
-          "line": 104
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/AdministrationLogger.java",
-      "selection": {
-        "end": {
-          "column": 1,
-          "index": 15985,
-          "line": 403
-        },
-        "start": {
-          "column": 1,
-          "index": 15985,
-          "line": 403
+          "column": 28,
+          "index": 1157,
+          "line": 34
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/AdministrationLogger.java"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/AndroidManifest.xml"
 }
