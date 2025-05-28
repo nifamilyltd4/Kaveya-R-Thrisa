@@ -1,7 +1,22 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/.gitignore",
+      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/console/google/gemini/prompt/memories/MemoriesContext.java",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 3483,
+          "line": 92
+        },
+        "start": {
+          "column": 1,
+          "index": 3483,
+          "line": 92
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/MainActivity.java",
       "selection": {
         "end": {
           "column": 0,
@@ -16,5 +31,5 @@
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/.gitignore"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/Kaveya R Thrisa/app/src/main/java/com/nidoham/kaveya/MainActivity.java"
 }

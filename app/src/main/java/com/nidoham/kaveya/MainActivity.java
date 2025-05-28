@@ -16,10 +16,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.nidoham.kaveya.adapter.ChatAdapter;
 import com.nidoham.kaveya.console.google.gemini.engine.ChatsEngine;
+import com.nidoham.kaveya.console.google.gemini.engine.MemoriesEngine;
 import com.nidoham.kaveya.databinding.ActivityMainBinding;
 import com.nidoham.kaveya.databinding.NavHeaderBinding;
 import com.nidoham.kaveya.firebase.google.database.model.Messages;
 import com.nidoham.kaveya.firebase.google.database.repository.control.ChatRepositoryController;
+import com.nidoham.kaveya.firebase.google.database.repository.control.MemoriesRepositoryController;
 import com.nidoham.kaveya.liberies.SketchwareUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ChatAdapter chatAdapter;
     private ChatsEngine chatsEngine;
+    private MemoriesEngine memoriesEngine;
+    
     private ChatRepositoryController chatController;
+    private MemoriesRepositoryController memoriesController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +54,13 @@ public class MainActivity extends AppCompatActivity {
     private void initializeComponents() {
         auth = FirebaseAuth.getInstance();
         chatsEngine = new ChatsEngine();
-        chatsEngine.addMemory("Always respond to me in Bangla, My name is NI Doha Mondol");
+        memoriesEngine = new MemoriesEngine();
         chatAdapter = new ChatAdapter(new ArrayList<>(), USER_ID, this);
         chatController = new ChatRepositoryController();
+        memoriesController = new MemoriesRepositoryController("system");
         setupChatAdapter();
         startListeningToMessages();
+        startListeningToMemories();
     }
 
     private void setupUI() {
@@ -80,6 +87,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    
+    private void startListeningToMemories() {
+        memoriesController.startListeningToMessages(new MemoriesRepositoryController.MemoriesListener() {
+            @Override
+            public void onMessagesChanged(String message) {
+                // This will be called whenever the memory data changes in Firebase
+                runOnUiThread(() -> {
+                    Log.d(TAG, "Memory updated: " + message);
+                    if (message != null && !message.isEmpty()) {
+                        chatsEngine.addMemory(message);
+                    } else {
+                        chatsEngine.addMemory("No Memories");
+                    }
+                });
+            }
+            
+            @Override
+            public void onError(DatabaseError error) {
+                runOnUiThread(() -> {
+                    Log.e(TAG, "Database error: " + error.getMessage());
+                });
+            }
+        });
+    }
+    
 
     private void sendAIRequest(String messageText) {
         if (chatsEngine == null) {
@@ -93,12 +125,57 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull String response) {
                 Messages aiResponse = createMessage(AI_ID, USER_ID, response, true);
                 saveMessageToFirebase(aiResponse);
+                sendAIMemoriesRequest(messageText);
             }
 
             @Override
             public void onError(@NonNull Throwable error) {
                 Log.e(TAG, "AI response error: " + error.getMessage(), error);
                 Toast.makeText(MainActivity.this, "Failed to get AI response", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    
+    private void sendAIMemoriesRequest(String messageText) {
+        if (memoriesEngine == null) {
+            Log.e(TAG, "Memories engine not initialized");
+            Toast.makeText(this, "Memories engine not initialized", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        memoriesEngine.sendMessage(messageText, new MemoriesEngine.ChatCallback() {
+            @Override
+            public void onResponse(@NonNull String response) {
+                addMemory(response);
+            }
+
+            @Override
+            public void onError(@NonNull Throwable error) {
+                Log.e(TAG, "AI response error: " + error.getMessage(), error);
+                Toast.makeText(MainActivity.this, "Failed to get AI response", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    
+    private void addMemory(String memoryText) {
+        if (memoryText.isEmpty()) {
+            Toast.makeText(this, "Please enter a memory", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        memoriesController.insertMessage(memoryText, new MemoriesRepositoryController.MemoriesCallback() {
+            @Override
+            public void onSuccess() {
+                runOnUiThread(() -> {
+                    Log.d(TAG, "Memory added successfully");
+                });
+            }
+            
+            @Override
+            public void onError(Exception e) {
+                runOnUiThread(() -> {
+                    Log.e(TAG, "Error adding memory: " + e.getMessage());
+                });
             }
         });
     }

@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 public class ChatsEngine implements AutoCloseable {
     
     private static final String TAG = "ChatsEngine";
-    private static final String DEFAULT_SYSTEM_INSTRUCTION = "You are a caring, loving AI girlfriend companion.";
+    private static final String DEFAULT_SYSTEM_INSTRUCTION = "**AI Girlfriend Chatbot Prompt Template**";
     
     private final GeminiController controller;
     private final List<String> conversationHistory;

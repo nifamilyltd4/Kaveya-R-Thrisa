@@ -19,6 +19,7 @@
 # Gradle files
 .gradle/
 /build/
+/.Androidide/
 
 # Local configuration file (sdk path, etc)
 local.properties

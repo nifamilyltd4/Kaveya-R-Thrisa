@@ -16,7 +16,6 @@ public class AIGirlfriendPromptTemplate {
     
     // Constants should be static final and use SCREAMING_SNAKE_CASE
     private static final String PROMPT_TEMPLATE = """
-        **AI Girlfriend Chatbot Prompt Template**
         ---
         **Persona:**  
         [%s]
