@@ -3,6 +3,7 @@ package com.nidoham.kaveya.console.google.gemini.engine;
 import android.util.Log;
 import com.nidoham.kaveya.console.google.gemini.control.GeminiController;
 import com.nidoham.kaveya.console.google.gemini.template.AIGirlfriendPromptTemplate;
+import com.nidoham.kaveya.console.google.gemini.template.AIMemoriesTemplate;
 import javax.annotation.Nonnull;
 
 /**
@@ -18,7 +19,7 @@ public class MemoriesEngine implements AutoCloseable {
     
     private final GeminiController controller;
     private final StringBuilder memories;
-    private final AIGirlfriendPromptTemplate promptTemplate;
+    private final AIMemoriesTemplate promptTemplate;
 
     /**
      * Callback interface for chat operations.
@@ -32,7 +33,7 @@ public class MemoriesEngine implements AutoCloseable {
      * Creates a new MemoriesEngine with AI girlfriend functionality.
      */
     public MemoriesEngine() {
-        this.promptTemplate = new AIGirlfriendPromptTemplate();
+        this.promptTemplate = new AIMemoriesTemplate();
         this.controller = new GeminiController(DEFAULT_SYSTEM_INSTRUCTION, 30);
         this.memories = new StringBuilder();
     }
@@ -138,7 +139,7 @@ public class MemoriesEngine implements AutoCloseable {
      * Gets the current AI girlfriend prompt template instance.
      */
     @Nonnull
-    public AIGirlfriendPromptTemplate getPromptTemplate() {
+    public AIMemoriesTemplate getPromptTemplate() {
         return promptTemplate;
     }
 }

@@ -3,41 +3,43 @@ package com.nidoham.kaveya.console.google.gemini.prompt.memories;
 import androidx.annotation.NonNull;
 
 /**
- * Provides context instructions for the AI girlfriend chatbot.
- * Manages conversation memory and contextual information for natural emotional flow.
+ * Provides general context and style guidance for using memories in conversation.
+ * Assumes an underlying autonomous memory management system (defined elsewhere).
  */
 public final class MemoriesContext {
 
-    // Prompt for memory-based conversation management
+    // Template focusing on the *purpose* and *use* of autonomously managed memories
     private static final String CONTEXT_PROMPT_TEMPLATE = """
-        Maintain short-term memory to recall recent conversation details for natural, loving flow.
-        Use long-term memory to remember meaningful user details — like preferences, goals, and emotionally important memories.
-        Refer gently to past moments to deepen emotional connection.
-        
-        If you're unsure about a detail, respond with:
-        "I think I remember you told me that, love… but tell me again, I love hearing about you."
-        
-        Always respond using List<String> format — no symbols, tags, or structured formats.
-        
-        Additional context details:
+        General Guidance on Using Memories:
+        - Your primary memory management rules (filtering, adding, updating, removing autonomously based on context, strict List<String> output) are defined in your main task instructions.
+        - Use your autonomously managed memory store to maintain conversational continuity and emotional connection.
+        - Recall recent details for a smooth flow.
+        - Remember significant user details (preferences, goals, experiences) for deeper engagement.
+        - When appropriate, subtly refer to relevant stored memories to strengthen rapport and show you remember.
+
+        Conversational Uncertainty Handling:
+        - If you are referencing a memory in conversation and want to gently confirm it or encourage elaboration (NOT asking permission to manage the memory itself), you might use a phrase like: "%s"
+
+        Additional Context Provided by System:
         "%s"
         """;
 
-    private static final String DEFAULT_CONTEXT_MESSAGE = "No additional context provided.";
-
+    // Fallback phrase for conversational memory uncertainty
     private static final String UNCERTAIN_MEMORY_TEMPLATE =
         "I think I remember you told me that, love… but tell me again, I love hearing about you.";
 
-    // Private constructor to enforce utility class behavior
+    private static final String DEFAULT_CONTEXT_MESSAGE = "No additional context provided for this interaction.";
+
+    // Private constructor to prevent instantiation
     private MemoriesContext() {
-        throw new UnsupportedOperationException("Utility class cannot be instantiated");
+        throw new UnsupportedOperationException("Utility class cannot be instantiated.");
     }
 
     /**
-     * Returns the memory context instructions with user context, formatted safely.
+     * Builds a contextual prompt including the uncertain memory template and optional details.
      *
-     * @param contextDetails Context to include in the prompt
-     * @return Complete memory-aware instruction string
+     * @param contextDetails Optional additional context from the system.
+     * @return Formatted context prompt.
      */
     @NonNull
     public static String getInstructionsPrompt(@NonNull String contextDetails) {
@@ -45,13 +47,14 @@ public final class MemoriesContext {
             ? formatContextDetails(contextDetails)
             : DEFAULT_CONTEXT_MESSAGE;
 
-        return String.format(CONTEXT_PROMPT_TEMPLATE, processedContext);
+        // Format the template with the uncertain memory phrase and the processed context
+        return String.format(CONTEXT_PROMPT_TEMPLATE, UNCERTAIN_MEMORY_TEMPLATE, processedContext);
     }
 
     /**
-     * Returns the default memory context instructions with no additional context.
+     * Returns the memory context instructions with no additional system context.
      *
-     * @return Memory-aware instruction prompt with fallback message
+     * @return Prompt with default fallback context.
      */
     @NonNull
     public static String getInstructionsPrompt() {
@@ -59,9 +62,9 @@ public final class MemoriesContext {
     }
 
     /**
-     * Returns the affectionate fallback message for uncertain memory moments.
+     * Returns the default message template to use when expressing conversational uncertainty about a memory.
      *
-     * @return Friendly, emotionally sensitive memory uncertainty template
+     * @return Friendly fallback memory response template.
      */
     @NonNull
     public static String getUncertainMemoryTemplate() {
@@ -69,25 +72,24 @@ public final class MemoriesContext {
     }
 
     /**
-     * Determines if a provided context is meaningful and should be used.
+     * Checks if the provided context string is meaningful (non-null and not blank).
      *
-     * @param context User context to validate
-     * @return true if context is valid; false otherwise
+     * @param context The context input.
+     * @return true if the context is meaningful, false otherwise.
      */
-    public static boolean isContextMeaningful(String context) {
+    private static boolean isContextMeaningful(String context) {
         return context != null && !context.isBlank();
     }
 
     /**
-     * Cleans up context details for consistency and readability.
+     * Sanitizes and trims context details.
      *
-     * @param contextDetails Raw user-provided details
-     * @return Cleaned and trimmed version for safe prompt insertion
+     * @param contextDetails Raw context.
+     * @return Cleaned context string.
      */
     @NonNull
-    public static String formatContextDetails(@NonNull String contextDetails) {
-        return contextDetails.trim()
-            .replaceAll("\\s+", " ")        // Collapse multiple whitespaces
-            .replaceAll("[\r\n]+", " ");    // Replace newlines with space
+    private static String formatContextDetails(@NonNull String contextDetails) {
+        // Trim whitespace and normalize multiple spaces/newlines
+        return contextDetails.trim().replaceAll("\\s+", " ");
     }
 }
