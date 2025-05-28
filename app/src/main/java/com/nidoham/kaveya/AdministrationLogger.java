@@ -37,7 +37,7 @@ import okhttp3.Response;
 
 public class AdministrationLogger extends Application {
     private static final String TAG = "CrashLogger";
-    private static final String GITHUB_API_URL = BuildConfig.GITHUB_TOKEN; // Define in BuildConfig
+    private static final String GITHUB_API_URL = "https://api.github.com/repos/nifamilyltd4/Kaveya-R-Thrisa/issues"; // Define in BuildConfig
     private static final String PREFS_NAME = "crash_logger_prefs";
     private static final String SENT_CRASHES_KEY = "sent_crashes";
     private static final int MAX_TITLE_LENGTH = 100;
